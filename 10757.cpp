@@ -27,7 +27,7 @@ int main()
     reverse(A);
     reverse(B);
     if (strlen(A) > strlen(B))
-        len = strlen(A);
+        len = strlen(A); 
     else
         len = strlen(B);
     for (int i = 0; i < len; i++)
