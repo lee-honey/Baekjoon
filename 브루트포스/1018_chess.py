@@ -1,27 +1,23 @@
 N, M = map(int, input().split())
 lst = []
-W, B = 0, 0
-colors = ['W', 'B']
-state = 0
-state2 = 0
+count = []
 for i in range(N):
     lst.append(list(input()))
-for i in range(N):
-    if i % 2 == 1:
-        colors = ['B', 'W']
-    else:
-        colors = ['W', 'B']
-    for j in range(M):
-        if lst[i][j] != colors[j % 2]:
-            state += 1
-for i in range(N):
-    if i % 2 == 1:
-        colors = ['W', 'B']
-    else:
-        colors = ['B', 'W']
-    for j in range(M):
-        if lst[i][j] != colors[j % 2]:
-            state2 += 1
-print(state2)
-
-# 8*8 체스판으로 자를것
+for a in range(N - 8 + 1):
+    for b in range(M - 8 + 1):
+        state = 0
+        state2 = 0
+        for i in range(a, a + 8):
+            for j in range(b, b + 8):
+                if (i + j) % 2 == 0:
+                    if lst[i][j] != 'W':
+                        state +=1
+                    if lst[i][j] != 'B':
+                        state2 +=1
+                else:
+                    if lst[i][j] != 'B':
+                        state +=1
+                    if lst[i][j] != 'W':
+                        state2 +=1
+        count.append(min(state, state2))
+print(min(count))
