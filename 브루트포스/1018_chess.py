@@ -8,7 +8,7 @@ for a in range(N - 8 + 1):
         state = 0
         state2 = 0
         for i in range(a, a + 8):
-            for j in range(b, b + 8):
+            for j in range(b, b + 8): 
                 if (i + j) % 2 == 0:
                     if lst[i][j] != 'W':
                         state +=1
