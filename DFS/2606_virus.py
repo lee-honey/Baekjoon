@@ -6,8 +6,6 @@ for i in range(M):
     a, b = map(int, input().split())
     graph[a].append(b)
     graph[b].append(a)
-for i in range(len(graph)):
-    graph[i].sort()
 result = 0
 def dfs(start):
     visited[start] = True
