@@ -8,8 +8,11 @@ while start <= end:
     for i in lst:
         if i > mid:
             cnt += i - mid
-    if cnt >= M:
+    if cnt > M:
         start = mid + 1
+    elif cnt == M:
+        end = mid
+        break
     else:
         end = mid - 1
 print(end)
