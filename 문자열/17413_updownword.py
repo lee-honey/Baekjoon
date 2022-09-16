@@ -1,5 +1,4 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
 S = input()
 lst = S.split('>')
