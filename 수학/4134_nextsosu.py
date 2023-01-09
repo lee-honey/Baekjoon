@@ -3,7 +3,7 @@ N = int(input())
 
 def isPrime(num):
     if num == 0 or num == 1:
-        return False
+        return False 
     elif num == 2:
         return True
     else:
