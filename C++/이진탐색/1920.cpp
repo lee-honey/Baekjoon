@@ -1,56 +1,56 @@
 #include <iostream>
 #include <algorithm>
-#include <list>
+
 using namespace std;
 
-int N(0), M(0), lt(0), rt(0), mid(0);
+int n(0), m(0), tmp(0);
+bool isExist(false);
 
-int main(void)
+int main()
 {
-    cin >> N;
-
-    int sangLst[N] = {0,};
-
-    for (int i =0; i < N; i++)
-    {
-        cin >> sangLst[i];
+    scanf("%d", &n);
+    int arr[n] = {0,};
+    for(int i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
     }
+    sort(arr, arr + n);
 
-    sort(sangLst, sangLst + N); // sort(배열의 포인터, 배열의 포인터 + 배열의 크기);
-    
-    cin >> M;
-
-    int compLst[M] = {0,};
-    int ansLst[M] = {0,};
-
-    for (int i =0; i < M; i++)
-    {
-        cin >> compLst[i];
-    }
-
-    for (int i = 0; i < M; i++)
-    {
-        lt = 0;
-        rt = N - 1;
-        while (lt <= rt)
-        {
-            mid = (lt + rt) / 2;
-            if (compLst[i] == sangLst[mid]) //target과 리스트값 비교
+    cin >> m;
+    for(int i =0; i < m; i++){
+        scanf("%d", &tmp);
+        int start = 0;
+        int last = n - 1;
+        int midIdx;
+        isExist = false;
+        while(start <= last){
+            midIdx = (start + last) / 2;
+            if(tmp == arr[midIdx])
             {
-                ansLst[i] = 1;
+                printf("1\n");
+                isExist = true;
                 break;
             }
-            else if (compLst[i] < sangLst[mid])
-                rt = mid - 1;
-            else 
-                lt = mid + 1;
+            else if(tmp < arr[midIdx]) last = midIdx - 1;
+            else start = midIdx + 1;
         }
+        if(isExist == false)
+            printf("0\n");
     }
-
-    for(int i = 0; i < M; i++)
-    {
-        cout << ansLst[i] << " ";
-    }
-
     return 0;
 }
+
+int binarySearch(int len, int m, int arr[]){
+    int start = 0;
+    int last = len - 1;
+    int midIdx;
+
+    while(start <= last){
+        midIdx = (start + last) / 2;
+        if(m == arr[midIdx]) return 1;
+        else if(m < arr[midIdx]) last = midIdx - 1;
+        else start = midIdx + 1;
+    }
+    return 0;
+}
+
+//기본적으로 cin은 cout 에 바인딩되어 있어서 cin에서 i/o작업을 수행하기 전에 flush가 호출되어 IO 부담이 증가 합니다
