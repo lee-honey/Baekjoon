@@ -7,5 +7,6 @@
         "numbers": "cpp",
         "ios": "cpp",
         "tuple": "cpp"
-    }
+    },
+    "workbench.settings.useSplitJSON": true
 }
