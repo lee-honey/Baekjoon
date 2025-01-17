@@ -6,7 +6,8 @@
         "limits": "cpp",
         "numbers": "cpp",
         "ios": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "xiosbase": "cpp"
     },
     "workbench.settings.useSplitJSON": true
 }
