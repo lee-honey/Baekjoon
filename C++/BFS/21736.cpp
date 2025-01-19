@@ -3,42 +3,41 @@
 
 using namespace std;
 
-int N = 0, M = 0;
-int res = 0;
-char map[600][600];
-bool visited[600][600];
-pair<int, int> iPos; //도연이 위치
+int N = 0, M = 0, iCount = 0;
+char arr[600][600];
+bool bVisited[600][600] = {false,};
+pair<int, int> iPos;
 
-int dy[] = {-1, 0, 1, 0};
-int dx[] = {0, -1, 0, 1};
+int dy[4] = {-1, 1, 0, 0};
+int dx[4] = {0, 0, -1, 1};
 
 void BFS()
 {
     queue<pair<int, int>> q;
     q.push(iPos);
-    visited[iPos.first][iPos.second] = true;
+    bVisited[iPos.first][iPos.second] = true;
 
     while(!q.empty())
     {
-        pair<int, int> cur = q.front();
+        pair<int, int> iCur = q.front();
         q.pop();
         for(int i = 0; i < 4; i++)
         {
-            pair<int, int> next = { cur.first + dy[i], cur.second + dx[i]};
-            if(next.first < 0 || next.first >= N || next.second < 0 || next.second >= M)
+            pair<int, int> iNext = {iCur.first + dy[i] , iCur.second + dx[i] };
+
+            if(iNext.first < 0 || iNext.first >= N ||
+            iNext.second < 0 || iNext.second >= M)
                 continue;
-
-            if(map[next.first][next.second] == 'X')
+            if(arr[iNext.first][iNext.second] == 'X')
                 continue;
-
-            if(visited[next.first][next.second] == true)
+            if(bVisited[iNext.first][iNext.second] == true)
                 continue;
+            
+            if(arr[iNext.first][iNext.second] == 'P')
+                iCount++;
 
-            if(map[next.first][next.second] == 'P')
-                res++;
-
-            q.push(next);
-            visited[next.first][next.second] = true;
+            q.push(iNext);
+            bVisited[iNext.first][iNext.second] = true;
         }
     }
 }
@@ -51,25 +50,22 @@ int main()
 
     cin >> N >> M;
 
-    for(int y = 0; y < N; y++)
+    for(int i = 0; i < N; i++)
     {
-        for(int x = 0; x < M; x++)
+        for(int j = 0; j < M; j++)
         {
-            cin >> map[y][x];
-            if(map[y][x] == 'I')
-            {
-                iPos.first = y;
-                iPos.second = x;
-            }
+            cin >> arr[i][j];
+            if(arr[i][j] == 'I')
+                iPos = {i, j};
         }
     }
 
     BFS();
 
-    if(res == 0) 
+    if(iCount == 0)
         cout << "TT" << '\n';
     else
-        cout << res << '\n';
+        cout << iCount << '\n';
 
     return 0;
 }
