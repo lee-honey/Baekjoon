@@ -7,7 +7,13 @@
         "numbers": "cpp",
         "ios": "cpp",
         "tuple": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "queue": "cpp",
+        "xutility": "cpp",
+        "utility": "cpp",
+        "span": "cpp",
+        "vector": "cpp"
     },
     "workbench.settings.useSplitJSON": true
 }
