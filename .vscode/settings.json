@@ -13,7 +13,9 @@
         "xutility": "cpp",
         "utility": "cpp",
         "span": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "xstring": "cpp",
+        "deque": "cpp"
     },
     "workbench.settings.useSplitJSON": true
 }
