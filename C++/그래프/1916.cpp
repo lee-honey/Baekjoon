@@ -54,6 +54,8 @@ int main()
         int st = pq.top().second;
         pq.pop();
 
+        if(value[st] < dist) continue;
+
         for(int i = 1; i <= N; i++)
         {
             int curNode = i;
