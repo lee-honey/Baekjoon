@@ -15,7 +15,8 @@
         "span": "cpp",
         "vector": "cpp",
         "xstring": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "stack": "cpp"
     },
     "workbench.settings.useSplitJSON": true
 }

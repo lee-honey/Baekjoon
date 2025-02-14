@@ -51,17 +51,17 @@ int main()
     while(!pq.empty())
     {
         int dist = pq.top().first;
-        int st = pq.top().second;
+        int now = pq.top().second;
         pq.pop();
 
-        if(value[st] < dist) continue;
+        if(value[now] < dist) continue;
 
         for(int i = 1; i <= N; i++)
         {
             int curNode = i;
-            int curDist = node[st][i];
+            int curDist = node[now][i];
 
-            if(curDist == INF || st == curNode)continue;
+            if(curDist == INF || now == curNode)continue;
 
             if(dist + curDist < value[curNode])
             {
