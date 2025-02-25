@@ -16,7 +16,9 @@
         "vector": "cpp",
         "xstring": "cpp",
         "deque": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "format": "cpp",
+        "list": "cpp"
     },
     "workbench.settings.useSplitJSON": true
 }
