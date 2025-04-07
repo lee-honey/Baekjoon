@@ -18,7 +18,8 @@
         "deque": "cpp",
         "stack": "cpp",
         "format": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "cmath": "cpp"
     },
     "workbench.settings.useSplitJSON": true
 }
