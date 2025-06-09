@@ -1,13 +1,12 @@
 #include <iostream>
 #include <algorithm>
-#include <queue>
 
 using namespace std;
 
-int n(0), x(0);
-vector<int> vec(100001);
-int ans(0);
-int st(0), ed(0);
+int n(0);
+int a[100001] = {0,};
+int x(0);
+int cnt(0);
 
 int main(void)
 {
@@ -17,15 +16,26 @@ int main(void)
 
     cin >> n;
     for(int i = 0; i < n; i++)
-    {
-        int temp(0);
-        cin >>temp;
-        vec.push_back(temp);
-    }
+        cin >> a[i];
     cin >> x;
 
-    sort(vec.begin(), vec.end());
+    sort(a, a + n);
 
+    int s(0), e(n - 1);
+
+    while(s < e)
+    {
+        if(a[s] + a[e] >= x)
+        {
+            if(a[s] + a[e] == x)
+                ++cnt;
+            e--;
+        }
+        else
+            s++;
+    }
+
+    cout << cnt << '\n';
 
     return 0;
 }
