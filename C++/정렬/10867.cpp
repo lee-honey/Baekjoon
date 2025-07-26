@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int N(0), K(0);
+int N(0);
 vector<int> vec;
 
 int main(void)
@@ -13,17 +13,18 @@ int main(void)
     cin.tie(NULL);
     cout.tie(NULL);
 
-    cin >> N >> K;
+    cin >> N;
     vec.resize(N);
-
     for(int i = 0; i < N; i++)
-    {
         cin >> vec[i];
-    }
 
     sort(vec.begin(), vec.end());
 
-    cout << vec[K - 1] << '\n';
+    for(int i = 0; i < N; i++)
+    {
+        if(i == 0 || vec[i] != vec[i - 1])
+            cout << vec[i] << " ";
+    }
 
     return 0;
 }
